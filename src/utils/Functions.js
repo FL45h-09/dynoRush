@@ -12,15 +12,17 @@ const mainCharDiv = document.getElementById('mainchar'); // Y
 
 
 const fallDown = ()=>{
-    if(Math.sign(dynoPosBottom) == -1){
-        bottomPos = `0`;
-        document.getElementById("mainchar").style.bottom=bottomPos;
-    }
-    else if(dynoPosBottom < 100 ){
-        bottomPos = `calc(${dynoPosBottom}% - 114px)`;
-        document.getElementById("mainchar").style.bottom=bottomPos;
-        console.log("Falling Down "+ bottomPos);
+    if(dynoPosBottom > 0){
         dynoPosBottom = dynoPosBottom - 5;
+        console.log("1st Falling Down "+ bottomPos);
+        if(Math.sign(dynoPosBottom) == -1){
+            bottomPos = `0`;
+            document.getElementById("mainchar").style.bottom=bottomPos;
+        }else{
+            bottomPos = `calc(${dynoPosBottom}% - 114px)`;
+            document.getElementById("mainchar").style.bottom=bottomPos;
+            console.log("2nd Falling Down "+ bottomPos);
+        }
     }
 }
 
@@ -38,6 +40,10 @@ const riseUp = ()=>{
     }
 }
 
+const StartFlying = ()=>{
+    
+}
+
 const flyHigh = ()=> {
     document.body.onkeyup = function(e) {
         if (e.key == " " || e.code == "Space") {
@@ -45,10 +51,10 @@ const flyHigh = ()=> {
             // console.log(currentBtmPos);
         }
     }
-    // document.body.onkeydown = function() {
-    //     // fallDown();
-    //     setInterval(fallDown, 200);
-    // }
+    document.body.onkeydown = function() {
+        // fallDown();
+        setInterval(fallDown, 200);
+    }
 }
 
 setInterval(flyHigh, 200);
