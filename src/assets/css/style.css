@@ -14,3 +14,8 @@
 }
 
 *{margin: 0; padding: 0; border: 0; outline: none;}
+
+#mainscene{height: 100dvh; width: 100dvw; position: relative;}
+
+#mainchar{display: inline-block; width: 17%; height: auto; position: absolute; z-index: 999; bottom: calc(50% - 114px); left: 0; transition: all .3s linear;}
+#mainchar img{width: 100%; height: auto; max-width: 100%;}
